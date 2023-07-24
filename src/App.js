@@ -10,7 +10,6 @@ import Settings from "./components/Settings/Settings";
 import Friends from "./components/Friends/Friends";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
-
 const App = (props) => {
   return(
     <BrowserRouter>
@@ -19,7 +18,7 @@ const App = (props) => {
           <Navbar />
             <div class="app-wrapper-content">                              
               <Routes>
-                <Route path="/profile/*" element={<Profile state={props.state.profilePage}/>}/>
+                <Route path="/profile/*" element={<Profile state={props.state.profilePage} addPost={props.addPost}/>}/>
                 <Route path="/messages/*" element={<Dialogs state={props.state.dialogsPage}/>}/>
                 <Route path="/news/*" element={<News />}/>
                 <Route path="/music/*" element={<Music />}/>
