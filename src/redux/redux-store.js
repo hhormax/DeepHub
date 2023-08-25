@@ -11,4 +11,6 @@ let redusers = combineReducers({
 
 let store = legacy_createStore(redusers);
 
+window.store = store;
+
 export default store;
