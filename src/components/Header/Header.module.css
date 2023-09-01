@@ -1,8 +1,12 @@
 .header{
-    grid-area: h;
-    background-color: green;
-  }
+  grid-area: h;
+  background-color: rgb(58, 64, 71);
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border: .1px solid rgb(83, 89, 105);
+}
   
-  header img{
-    width: 20px;
-  }
+.icon{
+  height: 60px;
+  margin-left: 20px;
+}

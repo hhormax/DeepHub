@@ -3,12 +3,13 @@ import s from './ProfileInfo.module.css';
 
 const ProfileInfo = () => {
   return (
-    <div>
+    <div className={s.profileInfo}>
         <div>
-          <img src="https://static4.depositphotos.com/1003326/319/i/450/depositphotos_3191160-stock-photo-blurry-bright-background.jpg"></img>
+          <img className={s.ava} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqI1ZZFfoilOlrVEwpgiCPe3ImRTeAsrNsUw&usqp=CAU"></img>
         </div>
         <div className={s.descriptionBlock}>
-          ava + descr
+          <div className={s.name}>Name</div>
+          <div className={s.lastName}>Lastname</div>
         </div>
     </div>
   );

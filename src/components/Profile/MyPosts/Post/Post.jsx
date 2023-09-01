@@ -4,10 +4,13 @@ import s from "./Post.module.css";
 const Post = (props) => {
   return (
     <div className={s.item}>
-      <img src="https://shapka-youtube.ru/wp-content/uploads/2021/02/avatarka-dlya-skaypa-dlya-parney.jpg" />
-      {props.message}
-      <div>
-        <span>like </span> {props.likesCount}
+      <div className={s.imessage}>
+        <img className={s.image} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqI1ZZFfoilOlrVEwpgiCPe3ImRTeAsrNsUw&usqp=CAU" />
+        <div className={s.message}>{props.message}</div> 
+      </div>
+      <div className={s.likes}>
+        <div>likes: </div> 
+        <div>{props.likesCount}</div>
       </div>
     </div>
   );
