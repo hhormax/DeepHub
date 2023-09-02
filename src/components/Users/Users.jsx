@@ -4,10 +4,13 @@ import styles from './Users.module.css'
 let Users = (props) => {
 
     if(props.users.length === 0){
+
+        //axios.get("")
+
         props.setUsers([
             {id: 1, photoURL: 'https://cdn-icons-png.flaticon.com/512/147/147142.png', followed: false, fullName: 'Dmitry', status: 'Boss', location: {city: 'Minsk', country: 'Belarus'}}, 
             {id: 2, photoURL: 'https://cdn-icons-png.flaticon.com/512/147/147142.png', followed: true, fullName: 'Andrey', status: 'Boss too', location: {city: 'Moscow', country: 'Russia'}}, 
-            {id: 3, photoURL: 'https://cdn-icons-png.flaticon.com/512/147/147142.png', followed: false, fullName: 'Sasha', status: 'Boss too too', location: {city: 'Kiev', country: 'Ukraine'}},  
+            {id: 3, photoURL: 'https://cdn-icons-png.flaticon.com/512/147/147142.png', followed: false, fullName: 'Sasha', status: 'Boss too too', location: {city: 'Kiev', country: 'Ukraine'}}    
             ])
     }
 
