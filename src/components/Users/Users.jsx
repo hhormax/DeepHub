@@ -12,7 +12,7 @@ class Users extends React.Component{
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
              .then(response =>{
                 this.props.setUsers(response.data.items);
-                this.props.setTotalUsersCount(response.data.totalCount);
+                this.props.setTotalUsersCount(100);
              })   
     }
 
@@ -33,34 +33,37 @@ class Users extends React.Component{
             pages.push(i);
         }
 
-        return <div className={s.users}>
-            {pages.map(p => {
-                return <span className={this.props.currentPage === p && s.selectedPage}
-                onClick={() => {this.onPageChanged(p);}}>{p} </span>
+        return <div className={s.all}>
+            { 
+            pages.map(p => {
+                const cl = (this.props.currentPage === p && s.selectedPage) + ' ' + s.cells;
+                return <span className={cl}
+                onClick={() => {this.onPageChanged(p);}}>{p}</span>
             })}
                         
         {
-            this.props.users.map(u => <div key={u.id}>
-                <span>
+            this.props.users.map(u => <div key={u.id} className={s.user}>
+                <div className={s.person}>
                     <div>
-                        <img src={u.photos.small != null ? u.photos.smal : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqI1ZZFfoilOlrVEwpgiCPe3ImRTeAsrNsUw&usqp=CAU"} className={s.photo}/>
+                        <img className={s.photo} src={u.photos.small != null ? u.photos.smal : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqI1ZZFfoilOlrVEwpgiCPe3ImRTeAsrNsUw&usqp=CAU"} />
                     </div>
-                    <div>
-                        {u.followed 
-                        ? <button onClick={()=>{this.props.unfollow(u.id)}}>Unfollow</button>
-                        : <button onClick={()=>{this.props.follow(u.id)}}>Follow</button>}
+                    <div className={s.data}>
+                        <div>
+                            <div>{u.name}</div>
+                            {/* <div>{u.status}</div> */}
+                        </div>
+                        <div>
+                            <div>{"u.location.country"}</div>
+                            <div>{"u.location.city"}</div>  
+                        </div>
                     </div>
-                </span>
-                <span className={s.person}>
-                    <span>
-                        <div>{u.name}</div>
-                        <div>{u.status}</div>
-                    </span>
-                    <span>
-                        <div>{"u.location.country"}</div>
-                        <div>{"u.location.city"}</div>  
-                    </span>
-                </span>
+                </div>           
+                <div>
+                     {u.followed 
+                     ? <button className={s.buttonRed} onClick={()=>{this.props.unfollow(u.id)}}>Unfollow</button>
+                     : <button className={s.buttonGreen} onClick={()=>{this.props.follow(u.id)}}>Follow</button>}
+                </div>
+                
             </div>)
         }
     </div>

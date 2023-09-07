@@ -1,13 +1,76 @@
 .photo{
     width: 100px;
     height: 100px;
+    border-radius: 50%;
 }
 
-.users{
+.all{
+    color: white;    
+    margin-top: 8px;
+}
+
+.user{
+    margin-top: 15px;
+    border: .1px solid rgb(48, 53, 66);
+    border-radius: 15px;
+    padding: 10px;
+    background-color: rgb(45, 51, 65);
+}
+
+.cells{
+    cursor: pointer;
     color: white;
+    border: .1px solid rgb(48, 53, 66);
+    border-radius: 5px;
+    padding: 3px 6px;
+    margin: 3px;
+    text-align: center;
 }
 
 .selectedPage{
     font-weight: bold;
     cursor: pointer;
+    color: gold;
+}
+
+.buttonRed,
+.buttonGreen{
+    border-radius: 5px;
+    border: .1px solid rgb(48, 53, 66);
+    color:white;
+    width: 75px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 12px;
+}
+
+.buttonRed{
+    background-color: rgb(177, 39, 39);
+}
+
+.buttonGreen{
+    background-color: rgb(52, 135, 52);
+}
+
+.buttonRed:hover{
+    background-color: rgb(210, 49, 49);
+    transition: all .4s ease;
+}
+
+.buttonGreen:hover{
+    background-color: rgb(61, 156, 61);
+    transition: all .4s ease;
+}
+
+.person{
+    margin-top: 10px;
+    display: flex;
+    width: 250px;
+    justify-content: space-between;
+}
+
+.data{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
 }
