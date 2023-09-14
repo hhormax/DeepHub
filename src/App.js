@@ -10,7 +10,7 @@ import Friends from "./components/Friends/Friends";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
-
+import MyProfile from "./components/Profile/MyProfile/MyProfile";
 
 const App = (props) => {
   return(
@@ -20,8 +20,8 @@ const App = (props) => {
           <Navbar />
             <div class="app-wrapper-content">                              
               <Routes>
+                <Route path="/myProfile/*" element={<MyProfile/>}/>
                 <Route path="/profile/:userID/*" element={<ProfileContainer/>}/>
-                <Route path="/profile/*" element={<ProfileContainer/>}/>
                 <Route path="/messages/*" element={<DialogsContainer/>}/>
                 <Route path="/news/*" element={<News />}/>
                 <Route path="/music/*" element={<Music />}/>
