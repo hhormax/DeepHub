@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-import Profile from "./components/Profile/Profile";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
@@ -21,7 +20,8 @@ const App = (props) => {
           <Navbar />
             <div class="app-wrapper-content">                              
               <Routes>
-                <Route path="/profile/*" element={<ProfileContainer />}/>
+                <Route path="/profile/:userID/*" element={<ProfileContainer/>}/>
+                <Route path="/profile/*" element={<ProfileContainer/>}/>
                 <Route path="/messages/*" element={<DialogsContainer/>}/>
                 <Route path="/news/*" element={<News />}/>
                 <Route path="/music/*" element={<Music />}/>
