@@ -9,9 +9,9 @@ import Friends from "./components/Friends/Friends";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
-import MyProfile from "./components/Profile/MyProfile/MyProfile";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
+import MyProfileContainer from "./components/Profile/MyProfile/MyProfileContainer";
 
 const App = (props) => {
   return(
@@ -21,7 +21,7 @@ const App = (props) => {
           <Navbar />
             <div class="app-wrapper-content">                              
               <Routes>
-                <Route path="/myProfile/*" element={<MyProfile/>}/>
+                <Route path="/myProfile/*" element={<MyProfileContainer/>}/>
                 <Route path="/profile/:userID/*" element={<ProfileContainer/>}/>
                 <Route path="/messages/*" element={<DialogsContainer/>}/>
                 <Route path="/news/*" element={<News />}/>
