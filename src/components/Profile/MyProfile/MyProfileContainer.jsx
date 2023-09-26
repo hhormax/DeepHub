@@ -4,6 +4,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import MyProfile from "./MyProfile";
 import getAuthUserData from "../../../redux/auth-reducer"
 import { withAuthRedirect } from "../../../HOC/withAuthRedirect";
+import { compose } from "redux";
 
 function withRouter(Component) {
   function ComponentWithRouterProp(props) {
@@ -32,6 +33,8 @@ let mapStateToProps = (state) => ({
   login: state.auth.login
 })
 
-let AuthRedirectComponent = withAuthRedirect(MyProfileContainer)
-
-export default connect(mapStateToProps, {getAuthUserData})(withRouter(AuthRedirectComponent));
+export default compose(
+  connect(mapStateToProps, {getAuthUserData}),
+  withRouter,
+  withAuthRedirect
+)(MyProfileContainer);
