@@ -1,6 +1,6 @@
 import React from "react";
 import s from './MyProfileInfo.module.css';
-import ProfileStatus from "./ProfileStatus";
+import MyProfileStatus from "./MyProfileStatus";
 
 const MyProfileInfo = (props) => {
   return (
@@ -11,7 +11,7 @@ const MyProfileInfo = (props) => {
         <div className={s.descriptionBlock}>
           <div className={s.name}>{props.login}</div>
         </div>
-        <ProfileStatus status={"xdfggf"}/>
+        <MyProfileStatus status={props.status} updateStatus={props.updateStatus}/>
     </div>
   );
 };

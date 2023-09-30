@@ -5,6 +5,8 @@ import MyProfile from "./MyProfile";
 import getAuthUserData from "../../../redux/auth-reducer"
 import { withAuthRedirect } from "../../../HOC/withAuthRedirect";
 import { compose } from "redux";
+import { getStatus } from "../../../redux/my-profile-reducer";
+import { updateStatus } from "../../../redux/my-profile-reducer";
 
 function withRouter(Component) {
   function ComponentWithRouterProp(props) {
@@ -24,17 +26,18 @@ class MyProfileContainer extends React.Component {
 
   render(){
     return (
-      <MyProfile {...this.props} />
+      <MyProfile {...this.props} status={this.props.status} updateStatus={this.props.updateStatus}/>
     );
   }
 };
 
 let mapStateToProps = (state) => ({
-  login: state.auth.login
+  login: state.auth.login,
+  status: state.myProfilePage.status
 })
 
 export default compose(
-  connect(mapStateToProps, {getAuthUserData}),
+  connect(mapStateToProps, {getAuthUserData, updateStatus, getStatus}),
   withRouter,
   withAuthRedirect
 )(MyProfileContainer);
