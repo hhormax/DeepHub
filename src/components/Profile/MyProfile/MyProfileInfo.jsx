@@ -10,8 +10,8 @@ const MyProfileInfo = (props) => {
         </div>
         <div className={s.descriptionBlock}>
           <div className={s.name}>{props.login}</div>
+          <div className={s.status}><MyProfileStatus status={props.status} updateStatus={props.updateStatus}/></div>
         </div>
-        <MyProfileStatus status={props.status} updateStatus={props.updateStatus}/>
     </div>
   );
 };

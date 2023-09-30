@@ -2,6 +2,8 @@ import React from "react";
 import s from './Users.module.css';
 import {NavLink} from "react-router-dom";
 
+const ava = 'https://the-wedding.ru/upload/photo/InfoArticles/svadebnym_spetsialistam_kak_ispolzovat_vkontakte_dlya_prodvizheniya_biznesa.jpg';
+
 let Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
     let pages = [];
@@ -24,18 +26,13 @@ let Users = (props) => {
                     <div>
                         <NavLink to={'/profile/' + u.id}>
                             <img className={s.photo} src={u.photos.small != null 
-                                ? u.photos.smal 
-                                : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqI1ZZFfoilOlrVEwpgiCPe3ImRTeAsrNsUw&usqp=CAU"} />
+                                ? u.photos.small 
+                                : ava} />
                         </NavLink>
                     </div>
                     <div className={s.data}>
                         <div>
-                            <div>{u.name}</div>
-                            {/* <div>{u.status}</div> */}
-                        </div>
-                        <div>
-                            <div>{"u.location.country"}</div>
-                            <div>{"u.location.city"}</div>  
+                            <div className={s.name}>{u.name}</div>
                         </div>
                     </div>
                 </div>           

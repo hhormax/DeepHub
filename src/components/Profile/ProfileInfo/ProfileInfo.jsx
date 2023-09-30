@@ -1,7 +1,8 @@
 import React from "react";
 import Preloader from "../../common/Preloader/Preloader";
 import s from './ProfileInfo.module.css';
-import MyProfileStatus from "../MyProfile/MyProfileStatus";
+
+const ava = 'https://the-wedding.ru/upload/photo/InfoArticles/svadebnym_spetsialistam_kak_ispolzovat_vkontakte_dlya_prodvizheniya_biznesa.jpg';
 
 const ProfileInfo = (props) => {
   if(!props.profile){
@@ -9,13 +10,14 @@ const ProfileInfo = (props) => {
   }
 
   return (
-    <div>
+    <div className={s.profileInfo}>
       <div>
-        <img src={props.profile.photos.large}/>
+        <img className={s.ava} src={props.profile.photos.large || ava}/>
       </div>
-      <div className={s.aboutMe}>{props.profile.aboutMe}</div>
-      <div className={s.aboutMe}>{props.profile.fullName}</div>
-      <div>(user status)</div>
+      <div className={s.descriptionBlock}>
+        <div className={s.aboutMe}>{props.profile.fullName}</div>
+        <div className={s.status}>{props.status}</div>
+      </div>
     </div>
   );
 };

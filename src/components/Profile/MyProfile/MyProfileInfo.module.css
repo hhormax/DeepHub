@@ -6,7 +6,6 @@
 }
 
 .descriptionBlock{
-    display: flex;
     padding: 10px;
     color: white;
     margin: auto 0;
@@ -17,11 +16,12 @@
     width: 120px;
     border-radius: 50%;
     padding: 20px;
+    margin-left: 10px;
 }
 
 .name,
 .lastName{
-    font-size: 28px;
+    font-size: 30px;
 }
 
 .name{
@@ -34,5 +34,9 @@
 
 .aboutMe{
     color: white;
+}
+
+.status{
+    font-size: 15px;
 }
 
