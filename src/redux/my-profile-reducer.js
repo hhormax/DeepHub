@@ -8,7 +8,7 @@ let initialState = {
   posts: [], 
   newPostText: '' ,
   profile: null,
-  status: "my status"
+  status: ''
 }
 
 const myProfileReducer = (state = initialState, action) => {
@@ -48,12 +48,12 @@ export const updateNewPostTextActionCreator = (text) => {return {type: UPDATE_NE
 export const setStatus = (status) => ({type: SET_STATUS, status})
 
 export const getStatus = (userId) => (dispatch) => {
-    profileAPI.getStatus(userId).then( response => {
+    profileAPI.getStatus(userId).then(response => {
         dispatch(setStatus(response.data))
     })
 }
 export const updateStatus = (status) => (dispatch) => {
-    profileAPI.updateStatus(status).then( response => {
+    profileAPI.updateStatus(status).then(response => {
         if(response.data.resultCode === 0) {
             dispatch(setStatus(status))
         }

@@ -22,7 +22,10 @@ function withRouter(Component) {
 
 class MyProfileContainer extends React.Component {
   
-  componentDidMount(){}
+  componentDidMount(){
+    const myId = 29928;
+    this.props.getStatus(myId);
+  }
 
   render(){
     return (
