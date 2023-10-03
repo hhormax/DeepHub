@@ -21,9 +21,9 @@ const LoginForm = (props) => {
     )
 }
 
-const FormikLoginForm = withForm({
-    form: 'login'
-})(LoginForm);
+// const FormikLoginForm = withForm({
+//     form: 'login'
+// })(LoginForm);
 
 const Login = (props) => {
 
@@ -33,7 +33,7 @@ const Login = (props) => {
 
     return <div>
         <h1>Login</h1>
-        <Formik initialValues={{ login: "", password: "", rememberMe: false }} onSubmit={onSubmit}>
+        <Formik initialValues={{ login: "", password: "", rememberMe: false }} onSubmit={onSubmit} form={'login'}>
         {(formikProps) => <LoginForm {...formikProps} />}
       </Formik>
     </div>
