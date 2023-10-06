@@ -15,13 +15,13 @@ const LoginForm = (props) => {
                 <Field type={"checkbox"} name="rememberMe" component={"input"} /> remember me
             </div>
             <div>
-            <button type="submit">Login</button>
+                <button type="submit">Login</button>
             </div>
         </form>
     )
 }
 
-// const FormikLoginForm = withForm({
+// const LoginFormRedux = withForm({
 //     form: 'login'
 // })(LoginForm);
 
