@@ -4,7 +4,6 @@ import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import { Navigate } from "react-router-dom";
 import { Field, Formik, useFormik } from "formik";
-import { withForm } from "formik-redux";
 
 const AddMessageForm = (props) =>{
 

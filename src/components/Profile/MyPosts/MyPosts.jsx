@@ -1,15 +1,20 @@
 import { Field, Formik } from "formik";
 import React from "react";
-import { addPostActionCreator, updateNewPostTextActionCreator } from "../../../redux/profile-reducer";
+import { maxLengthCreator, required } from "../../../utils/validators/validators";
+import { Textarea } from "../../common/FormsControls/FormsControls";
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
 
+const maxLength10 = maxLengthCreator(10);
+
 const MyPostsForm = (props) => {
+  console.log(props.posts);
   return(
     <form onSubmit={props.handleSubmit}>
           <div className={s.addPostBlock}>
             <div>
-              <Field className={s.text} placeholder={"Your message.."} name="newPostText" component={"textarea"}/>
+              <Field className={s.text} placeholder={"Your message.."} name="newPostText"
+               component={Textarea} validate={maxLength10} />
             </div>
             <div>
               <button className={s.button} type="submit">Add post</button>
@@ -20,7 +25,7 @@ const MyPostsForm = (props) => {
 }
 
 const MyPosts = (props) => {
-
+  
   let postsElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
 
   let onAddPost = (values) => {
@@ -38,6 +43,10 @@ const MyPosts = (props) => {
      </div>
   </div> 
   );
+};
+
+MyPosts.defaultProps = {
+  posts: [],
 };
 
 export default MyPosts;
