@@ -13,8 +13,13 @@ const MyPostsForm = (props) => {
     <form onSubmit={props.handleSubmit}>
           <div className={s.addPostBlock}>
             <div>
-              <Field className={s.text} placeholder={"Your message.."} name="newPostText"
-               component={Textarea} validate={maxLength10} />
+              <Field 
+                className={s.text} 
+                placeholder={"Your message.."} 
+                name="newPostText"
+                component={Textarea} 
+                validate={[required, maxLength10]}
+                />
             </div>
             <div>
               <button className={s.button} type="submit">Add post</button>
@@ -28,15 +33,21 @@ const MyPosts = (props) => {
   
   let postsElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
 
-  let onAddPost = (values) => {
-    props.addPost(values.newPostText);
+  let onAddPost = (values, { resetForm }) => {
+    if (values.newPostText) { 
+      props.addPost(values.newPostText);
+      resetForm(); 
+    }
   }
 
   return (
   <div className={s.postsBlock} >
      <h3>My posts</h3>
-     <Formik initialValues={{ newMessageBody: "" }} onSubmit={onAddPost} form={'myposts'}>
-       {(formikProps) => <MyPostsForm {...formikProps} />}
+     <Formik 
+      initialValues={{ newPostText: "" }} 
+      onSubmit={onAddPost} 
+      form={'myposts'}>
+      {(formikProps) => <MyPostsForm {...formikProps} />}
      </Formik>
      <div className={s.posts}>
        {postsElements}
