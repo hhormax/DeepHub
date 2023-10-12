@@ -1,11 +1,14 @@
 import { Field, Formik } from "formik";
 import React from "react";
-import { maxLengthCreator, required } from "../../../utils/validators/validators";
-import { Textarea } from "../../common/FormsControls/FormsControls";
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
 
-const maxLength10 = maxLengthCreator(10);
+const maxLengthCreator = (maxLength) => (value) => {
+  if (value.length > maxLength) {
+    return `Max length is ${maxLength}`;
+  }
+  return undefined;
+}
 
 const MyPostsForm = (props) => {
   console.log(props.posts);
@@ -17,8 +20,8 @@ const MyPostsForm = (props) => {
                 className={s.text} 
                 placeholder={"Your message.."} 
                 name="newPostText"
-                component={Textarea} 
-                validate={[required, maxLength10]}
+                component="textarea" 
+                validate={maxLengthCreator(10)}
                 />
             </div>
             <div>
@@ -42,16 +45,19 @@ const MyPosts = (props) => {
 
   return (
   <div className={s.postsBlock} >
-     <h3>My posts</h3>
-     <Formik 
-      initialValues={{ newPostText: "" }} 
-      onSubmit={onAddPost} 
-      form={'myposts'}>
-      {(formikProps) => <MyPostsForm {...formikProps} />}
+    <h3>My posts</h3>
+    <Formik 
+        initialValues={{ 
+          newPostText: "" 
+        }} 
+        onSubmit={onAddPost} 
+        form={'myposts'}>
+        
+        {(formikProps) => <MyPostsForm {...formikProps} />}
      </Formik>
-     <div className={s.posts}>
-       {postsElements}
-     </div>
+    <div className={s.posts}>
+      {postsElements}
+    </div>
   </div> 
   );
 };
