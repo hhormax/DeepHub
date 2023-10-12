@@ -4,6 +4,32 @@
     padding: 20px;
 }
 
+.textarea {
+    background-color: inherit;
+    border-radius: 5px;
+    border: .1px solid rgb(48, 53, 66);
+    color:white;
+    width: 340px; 
+    height: 55px; 
+    resize: none; 
+}  
+
+.button{
+    background-color: rgb(48, 53, 66);
+    border-radius: 5px;
+    border: .1px solid rgb(48, 53, 66);
+    color:white;
+    width: 75px;
+    height: 30px;
+    margin-top: 10px;
+    transition: all .4s ease;
+    -webkit-transition: all ease .4s;
+}
+
+.button:hover{
+    background-color: rgb(56, 62, 76);
+}
+
 .dialogItems{
 }
 

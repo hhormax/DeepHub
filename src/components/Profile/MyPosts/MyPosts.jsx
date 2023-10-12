@@ -21,7 +21,7 @@ const MyPostsForm = (props) => {
                 placeholder={"Your message.."} 
                 name="newPostText"
                 component="textarea" 
-                validate={maxLengthCreator(10)}
+                validate={maxLengthCreator(100)}
                 />
             </div>
             <div>
@@ -44,7 +44,7 @@ const MyPosts = (props) => {
   }
 
   return (
-  <div className={s.postsBlock} >
+  <div className={s.postsBlock}>
     <h3>My posts</h3>
     <Formik 
         initialValues={{ 

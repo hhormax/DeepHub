@@ -9,10 +9,21 @@
 .item{
   color: white;
   text-decoration: none;
+  font-size: 16px;
+  padding: 3px;
+  align-items: center;
+  transition: all .25s ease;
+    -webkit-transition: all ease .25s;
+}
+
+.item:hover{
+  background-color: rgb(44, 49, 62);
+  border-radius: 3px;
+
 }
 
 .active{
-  color: gold;
+  color: white;
   text-decoration: none;
 }
 

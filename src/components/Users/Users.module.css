@@ -42,6 +42,8 @@
     height: 30px;
     margin-top: 10px;
     margin-left: 12px;
+    transition: all .4s ease;
+    -webkit-transition: all ease .4s;
 }
 
 .buttonRed{

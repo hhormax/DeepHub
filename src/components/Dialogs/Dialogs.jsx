@@ -3,23 +3,23 @@ import s from'./Dialogs.module.css';
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import { Navigate } from "react-router-dom";
-import { Field, Formik, useFormik } from "formik";
+import { Field, Formik } from "formik";
 
 const AddMessageForm = (props) =>{
 
   return(
     <form onSubmit={props.handleSubmit}>
-      <div>
-        <Field placeholder={"Enter your message"} name="newMessageBody" component={"textarea"}/>
+      <div className={s.messageBlock}>
+        <Field 
+          className={s.textarea}
+          placeholder={"Enter your message"} 
+          name="newMessageBody" 
+          component="textarea"/>
       </div>
-      <div><button type="submit">Send</button></div>
+      <div><button className={s.button} type="submit">Send</button></div>
     </form>
   )
 }
-
-// const AddMessageFormRedux = withForm({
-//   form: 'dialogAddMessageForm'
-// })(AddMessageForm);
 
 const Dialogs = (props) => {
 
@@ -32,9 +32,10 @@ const Dialogs = (props) => {
     props.sendMessage(formData.newMessageBody);
   }
 
-  const onSubmit = (formData) => {
+  const onSubmit = (formData, { resetForm }) => {
     console.log(formData);
     addNewMessage(formData);
+    resetForm(); 
 }
 
   if(!props.isAuth) return <Navigate to={"/login"} />;
@@ -46,9 +47,14 @@ const Dialogs = (props) => {
             </div>
             <div className={s.messages}>
               <div>{messagesElements}</div>
-              <Formik initialValues={{ newMessageBody: "" }} onSubmit={onSubmit} form={'dialogs'}>
+
+              <Formik 
+                initialValues={{ newMessageBody: "" }} 
+                onSubmit={onSubmit} 
+                form={'dialogs'}>
                 {(formikProps) => <AddMessageForm {...formikProps} />}
               </Formik>
+
             </div>  
          </div>
            
