@@ -7,7 +7,7 @@ const validateEmail = value =>{
     if (!value) {
         return 'Required';
     } 
-    else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)
+    else if (!/\w/.test(value)
     ) {
         return 'Invalid email address';
     }
@@ -32,21 +32,26 @@ const Login = () => (
         }}
       >
         {({ errors, touched }) => (
-        <Form>
-            <label className={classnames(s.label, {[s.errorLabel]: errors.email && touched.email})}>Email</label>
-            <Field className={classnames(s.field, {[s.errorInput]: errors.email && touched.email})}
-                name="email"
-                validate={validateEmail}
-                />
-            {errors.email && touched.email && (<div className={s.error}>{errors.email}</div>)}
+        <Form className={s.form}>
+            <div className={s.loginComponent}>
+                <label className={s.label}>Login</label>
+                <Field className={classnames(s.field, {[s.errorInput]: errors.email && touched.email})}
+                    name="email"
+                    placeholder="login"
 
-            <label className={classnames(s.label, {[s.errorLabel]: errors.password && touched.password})}>Password</label>
-            <Field className={classnames(s.field, {[s.errorInput]: errors.password && touched.password})}
-                name="password"
-                type="password"
-                validate={validatePassword}
-                />
-            {errors.email && touched.email && (<div className={s.error}>{errors.email}</div>)}
+                    validate={validateEmail}/>
+                {errors.email && touched.email && (<div className={s.error}>{errors.email}</div>)}
+            </div>
+
+            <div className={s.passComponent}>
+                <label className={s.label}>Password</label>
+                <Field className={classnames(s.field, {[s.errorInput]: errors.password && touched.password})}
+                    name="password"
+                    type="password"
+                    placeholder="password"
+                    validate={validatePassword}/>
+                {errors.password && touched.password && (<div className={s.error}>{errors.password}</div>)}
+            </div>
                <button className={s.button} type="submit">Send</button>
         </Form>
         )}

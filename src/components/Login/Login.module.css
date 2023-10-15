@@ -1,0 +1,76 @@
+:active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
+.form{
+    background-color: rgb(31, 35, 45);
+    width: 250px;
+    height: 205px;
+    padding: 15px;
+    border-radius: 15px;
+    border: .1px solid rgb(48, 53, 66);
+}
+
+.passComponent{
+    margin-bottom: -30px;
+}
+
+.loginComponent,
+.passComponent{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.label{
+    color: white;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.errorLabel{
+    color: red;
+}
+
+.field{
+    padding: 0px 0px 0px 5px;
+    background-color: rgb(58, 64, 71);
+    border-radius: 5px;
+    border: 1px solid rgb(58, 64, 71);
+    color:white;
+    width: 245px; 
+    height: 30px; 
+    resize: none; 
+}
+
+.field:active{
+    border: 1px solid rgb(48, 53, 66);
+}
+
+.errorInput{
+    border: 1px solid rgb(172, 61, 61);
+    box-shadow: 0px 0px 10px 0px rgb(172, 61, 61);
+    transition: all .15s ease;
+}
+
+.error{
+    color: red;
+    font-size: 12px;
+    opacity: 0.8;
+    margin-top: 3px;
+    margin-bottom: -19px;
+}
+
+.button{
+    background: linear-gradient(to bottom right, blue, rgb(236, 103, 243));
+    border-radius: 5px;
+    border: none;
+    color:white;
+    width: 75px;
+    height: 30px;
+    transition: all .4s ease;
+    -webkit-transition: all ease .4s;
+    margin-top: -5px;
+    cursor: pointer;
+}
