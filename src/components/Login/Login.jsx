@@ -1,7 +1,11 @@
 import React from "react";
 import classnames from 'classnames'
+import styled from 'styled-components';
 import s from './Login.module.css'
 import { Field, Formik, Form } from "formik";
+import {logiN} from '../../redux/auth-reducer'
+import { connect } from "react-redux";
+
 
 const validateEmail = value =>{
     if (!value) {
@@ -19,16 +23,18 @@ const validatePassword = value =>{
     } 
 }
 
-const Login = () => (
+const Login = (props) => (
     <div>
       <Formik
         initialValues={{ 
             email: '', 
-            password: '' 
+            password: '',
+            rememberMe: false
         }}
 
         onSubmit={values => {
-            console.log('submit', values);
+            console.log(values);
+            props.logiN(values.email, values.password, values.rememberMe)
         }}
       >
         {({ errors, touched }) => (
@@ -52,11 +58,20 @@ const Login = () => (
                     validate={validatePassword}/>
                 {errors.password && touched.password && (<div className={s.error}>{errors.password}</div>)}
             </div>
-               <button className={s.button} type="submit">Send</button>
+
+            <div className={s.rememberMe}>
+                <label className={s.label}>Remember me</label>
+                <Field 
+                    className={s.box}
+                    name="rememberMe"
+                    type="checkbox"
+                    />
+            </div>
+               <button className={s.button} type="submit">Login</button>
         </Form>
         )}
       </Formik>
     </div>
   );
   
-  export default Login;
+  export default connect(null, {logiN})(Login);
