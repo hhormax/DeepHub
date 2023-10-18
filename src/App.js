@@ -30,7 +30,6 @@ const App = (props) => {
                 <Route path="/users/*" element={<UsersContainer />}/>
                 <Route path="/settings/*" element={<Settings />}/>
                 <Route path="/friends/*" element={<Friends />}/>
-                <Route path="/login/*" element={<Login />}/>
               </Routes>             
             </div>         
         </div>

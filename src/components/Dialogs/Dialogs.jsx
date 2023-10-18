@@ -54,7 +54,6 @@ const Dialogs = (props) => {
                 form={'dialogs'}>
                 {(formikProps) => <AddMessageForm {...formikProps} />}
               </Formik>
-
             </div>  
          </div>
            
