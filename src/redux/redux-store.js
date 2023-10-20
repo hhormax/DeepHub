@@ -7,6 +7,7 @@ import authReducer from "./auth-reducer";
 import thunkMiddleware from "redux-thunk";
 import myProfileReducer from "./my-profile-reducer";
 import { reducer as formik } from "formik-redux";
+import appReducer from "./app-reducer";
 
 let redusers = combineReducers({
     myProfilePage: myProfileReducer,
@@ -15,7 +16,8 @@ let redusers = combineReducers({
     sidebar: sidebarReducer,
     usersPage: usersReducer,
     auth: authReducer,
-    form: formik
+    form: formik,
+    app: appReducer
 });
 
 let store = legacy_createStore(redusers, applyMiddleware(thunkMiddleware));
