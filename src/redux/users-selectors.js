@@ -1,3 +1,5 @@
+import { createSelector } from 'reselect'
+
 export const getStateUsers = (state) => {
     return state.usersPage.users;
 }
@@ -21,3 +23,5 @@ export const getIsFetching = (state) => {
 export const getFollowingInProgress = (state) => {
     return state.usersPage.followingInProgress;
 }
+
+//export const getUsersSuper = createSelector()
