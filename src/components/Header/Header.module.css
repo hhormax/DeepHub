@@ -10,6 +10,7 @@
   height: 35px;
   margin-left: 15px;
   margin-top: 12px;
+  cursor: pointer;
 }
 
 .loginBlock{
@@ -41,4 +42,8 @@
 .login:hover,
 .logout:hover{
   background-color: rgb(56, 62, 76);
+}
+
+.icon:hover{
+  cursor: pointer;
 }

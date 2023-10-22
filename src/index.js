@@ -16,9 +16,4 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
   </React.StrictMode>
 );
 
-
-
-
-
-//https://bit.ly/CRA-vitals
 reportWebVitals();

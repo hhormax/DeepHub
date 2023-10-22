@@ -1,17 +1,16 @@
-import React from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-
-const withRouter = (Component) => {
+import { useLocation, useParams } from 'react-router-dom';
+  
+ export default function withRouter(Component) {
     function ComponentWithRouterProp(props) {
-        let location = useLocation();
-        let navigate = useNavigate();
-        let params = useParams();
-        return (
-            <Component {...props} router={{ location, navigate, params }}/>
-        );
+      let location = useLocation();
+      let params = useParams();
+      return (
+        <Component
+          {...props}
+          router={{ location, params }}
+        />
+      );
     }
+  
     return ComponentWithRouterProp;
   }
-
-  export default withRouter;
-
