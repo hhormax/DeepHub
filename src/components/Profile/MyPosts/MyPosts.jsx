@@ -11,7 +11,6 @@ const maxLengthCreator = (maxLength) => (value) => {
 }
 
 const MyPostsForm = (props) => {
-  console.log(props.posts);
   return(
     <form onSubmit={props.handleSubmit}>
           <div className={s.addPostBlock}>
@@ -32,8 +31,8 @@ const MyPostsForm = (props) => {
   )
 }
 
-const MyPosts = (props) => {
-  
+const MyPosts = React.memo((props) => {
+  console.log('ho')
   let postsElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
 
   let onAddPost = (values, { resetForm }) => {
@@ -60,7 +59,7 @@ const MyPosts = (props) => {
     </div>
   </div> 
   );
-};
+})
 
 MyPosts.defaultProps = {
   posts: [],
