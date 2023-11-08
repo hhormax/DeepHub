@@ -1,4 +1,4 @@
-import { applyMiddleware, combineReducers, legacy_createStore } from "redux";
+import { applyMiddleware, combineReducers, legacy_createStore, compose } from "redux";
 import profileReducer from "./profile-reducer";
 import dialogsReducer from "./dialogs-reducer";
 import sidebarReducer from "./sidebar-reducer";
@@ -9,7 +9,7 @@ import myProfileReducer from "./my-profile-reducer";
 import { reducer as formik } from "formik-redux";
 import appReducer from "./app-reducer";
 
-let redusers = combineReducers({
+let reducers = combineReducers({
     myProfilePage: myProfileReducer,
     profilePage: profileReducer,
     dialogsPage: dialogsReducer,
@@ -20,8 +20,11 @@ let redusers = combineReducers({
     app: appReducer
 });
 
-let store = legacy_createStore(redusers, applyMiddleware(thunkMiddleware));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = legacy_createStore(reducers, composeEnhancers(applyMiddleware(thunkMiddleware)));
 
-window.store = store;
+//let store = legacy_createStore(redusers, applyMiddleware(thunkMiddleware));
+
+window.store__ = store;
 
 export default store;

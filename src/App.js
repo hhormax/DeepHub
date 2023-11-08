@@ -12,11 +12,10 @@ import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
 import MyProfileContainer from "./components/Profile/MyProfile/MyProfileContainer";
-import { compose } from "redux";
 import { connect } from "react-redux";
 import { initializeApp } from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
-import withRouter from "./HOC/withRouter";
+
 
 class App extends React.Component {
 
