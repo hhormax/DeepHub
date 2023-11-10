@@ -1,27 +1,18 @@
 import React from "react";
 import s from './Users.module.css';
 import {NavLink} from "react-router-dom";
+import Paginator from "../common/Paginator/Paginator";
 
 const ava = 'https://the-wedding.ru/upload/photo/InfoArticles/svadebnym_spetsialistam_kak_ispolzovat_vkontakte_dlya_prodvizheniya_biznesa.jpg';
 
-let Users = (props) => {
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
-    let pages = [];
-    for(let i = 1; i <= pagesCount; i++)
-    {
-        pages.push(i);
-    }
+let Users = ({currentPage, totalUsersCount, pageSize, onPageChanged, users, ...props}) => {
 
     return <div className={s.all}>
-            { 
-            pages.map(p => {
-                const cl = (props.currentPage === p && s.selectedPage) + ' ' + s.cells;
-                return <span className={cl}
-                onClick={() => {props.onPageChanged(p);}}>{p}</span>
-            })}
+
+        <Paginator currentPage={currentPage} onPageChanged={onPageChanged} totalItemsCount={totalUsersCount} pageSize={pageSize} />              
                         
         {
-            props.users.map(u => <div key={u.id} className={s.user}>
+            users.map(u => <div key={u.id} className={s.user}>
                 <div className={s.person}>
                     <div>
                         <NavLink to={'/profile/' + u.id}>
