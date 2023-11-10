@@ -27,56 +27,23 @@
     text-align: center;
 }
 
+.buttons{
+    cursor: pointer;
+    color: white;
+    border: .1px solid rgb(48, 53, 66);
+    border-radius: 5px;
+    padding: 5px 10px;
+    text-align: center;
+    background-color: inherit;
+}
+
 .selectedPage{
     font-weight: bold;
     cursor: pointer;
     color: gold;
 }
 
-.buttonRed,
-.buttonGreen{
-    border-radius: 5px;
-    border: .1px solid rgb(48, 53, 66);
-    color:white;
-    width: 75px;
+.paginator{
     height: 30px;
-    margin-top: 10px;
-    margin-left: 12px;
-    transition: all .4s ease;
-    -webkit-transition: all ease .4s;
-}
-
-.buttonRed{
-    background-color: rgb(177, 39, 39);
-}
-
-.buttonGreen{
-    background-color: rgb(52, 135, 52);
-}
-
-.buttonRed:hover{
-    background-color: rgb(210, 49, 49);
-    transition: all .4s ease;
-}
-
-.buttonGreen:hover{
-    background-color: rgb(61, 156, 61);
-    transition: all .4s ease;
-}
-
-.person{
-    margin-top: 10px;
-    display: flex;
-    width: 220px;
-    justify-content: space-between;
-}
-
-.data{
-    display: flex;
-    flex-direction: column;
-    justify-content:space-around;
-}
-
-.name{
-    font-size: 20px;
+    position: relative;
 }
