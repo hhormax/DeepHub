@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import s from './Paginator.module.css';
 
 let Paginator = ({ totalItemsCount, pageSize, currentPage, onPageChanged, portionSize = 10 }) => {
@@ -13,6 +13,7 @@ let Paginator = ({ totalItemsCount, pageSize, currentPage, onPageChanged, portio
     let [portionNumber, setPortionNumber] = useState(1);
     let leftPortionNumber = (portionNumber - 1) * portionSize + 1;
     let rightPortionNumber = portionNumber * portionSize;
+    useEffect(()=>setPortionNumber(Math.ceil(currentPage/portionSize)), [currentPage]);
 
     return <div className={s.paginator}>
         {portionNumber > 1 &&

@@ -1,20 +1,20 @@
 import React from "react";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
-import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import Friends from "./components/Friends/Friends";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import UsersContainer from "./components/Users/UsersContainer";
-import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
 import MyProfileContainer from "./components/Profile/MyProfile/MyProfileContainer";
 import { connect } from "react-redux";
 import { initializeApp } from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
+const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"));
+const ProfileContainer = React.lazy(() => import("./components/Profile/ProfileContainer"));
 
 
 class App extends React.Component {
@@ -33,7 +33,8 @@ class App extends React.Component {
           <div className='app-wrapper'>
             <HeaderContainer />
             <Navbar />
-              <div class="app-wrapper-content">                              
+              <div class="app-wrapper-content">       
+              <React.Suspense fallback={<div><Preloader /></div>}>                     
                 <Routes>
                   <Route path="/login/*" element={<Login />}/>
                   <Route path="/myProfile/*" element={<MyProfileContainer/>}/>
@@ -44,7 +45,8 @@ class App extends React.Component {
                   <Route path="/users/*" element={<UsersContainer />}/>
                   <Route path="/settings/*" element={<Settings />}/>
                   <Route path="/friends/*" element={<Friends />}/>
-                </Routes>             
+                </Routes>
+              </React.Suspense>               
               </div>         
           </div>
       </BrowserRouter>
