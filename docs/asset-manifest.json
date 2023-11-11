@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/hhormax/TrendR/static/css/main.c51b96e9.css",
+    "main.js": "/hhormax/TrendR/static/js/main.5fc74fa2.js",
+    "static/css/672.d0689b58.chunk.css": "/hhormax/TrendR/static/css/672.d0689b58.chunk.css",
+    "static/js/672.889ab9b2.chunk.js": "/hhormax/TrendR/static/js/672.889ab9b2.chunk.js",
+    "static/css/451.1ee34ede.chunk.css": "/hhormax/TrendR/static/css/451.1ee34ede.chunk.css",
+    "static/js/451.3e876084.chunk.js": "/hhormax/TrendR/static/js/451.3e876084.chunk.js",
+    "static/js/787.6f0453fb.chunk.js": "/hhormax/TrendR/static/js/787.6f0453fb.chunk.js",
+    "static/media/logo.png": "/hhormax/TrendR/static/media/logo.4bf81ae35ab00e9a6434.png",
+    "static/media/preloader.svg": "/hhormax/TrendR/static/media/preloader.645b2788acc9a3099d1ea90cf9e62947.svg",
+    "index.html": "/hhormax/TrendR/index.html",
+    "main.c51b96e9.css.map": "/hhormax/TrendR/static/css/main.c51b96e9.css.map",
+    "main.5fc74fa2.js.map": "/hhormax/TrendR/static/js/main.5fc74fa2.js.map",
+    "672.d0689b58.chunk.css.map": "/hhormax/TrendR/static/css/672.d0689b58.chunk.css.map",
+    "672.889ab9b2.chunk.js.map": "/hhormax/TrendR/static/js/672.889ab9b2.chunk.js.map",
+    "451.1ee34ede.chunk.css.map": "/hhormax/TrendR/static/css/451.1ee34ede.chunk.css.map",
+    "451.3e876084.chunk.js.map": "/hhormax/TrendR/static/js/451.3e876084.chunk.js.map",
+    "787.6f0453fb.chunk.js.map": "/hhormax/TrendR/static/js/787.6f0453fb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c51b96e9.css",
+    "static/js/main.5fc74fa2.js"
+  ]
+}
