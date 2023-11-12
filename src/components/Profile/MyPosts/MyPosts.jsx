@@ -32,7 +32,6 @@ const MyPostsForm = (props) => {
 }
 
 const MyPosts = React.memo((props) => {
-  console.log('ho')
   let postsElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
 
   let onAddPost = (values, { resetForm }) => {
