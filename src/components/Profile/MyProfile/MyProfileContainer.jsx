@@ -8,6 +8,8 @@ import { compose } from "redux";
 import { getStatus } from "../../../redux/my-profile-reducer";
 import { updateStatus } from "../../../redux/my-profile-reducer";
 import { savePhoto } from "../../../redux/my-profile-reducer";
+import { getMyProfile } from "../../../redux/my-profile-reducer";
+
 
 function withRouter(Component) {
   function ComponentWithRouterProp(props) {
@@ -24,8 +26,9 @@ function withRouter(Component) {
 class MyProfileContainer extends React.Component {
   
   componentDidMount(){
-    const myId = 29928;
-    this.props.getStatus(myId);
+    let userId = this.props.myId;
+    this.props.getMyProfile(userId);
+    this.props.getStatus(userId);
   }
 
   render(){
@@ -34,21 +37,25 @@ class MyProfileContainer extends React.Component {
       photo={this.props.photo}
       status={this.props.status} 
       updateStatus={this.props.updateStatus} 
-      isOwner={!!this.props.getStatus(29928)}
-      savePhoto={this.props.savePhoto}/>
+      isOwner={!!this.props.getStatus(this.props.myId)}
+      savePhoto={this.props.savePhoto}
+      profile={this.props.profile}
+      />
     );
   }
 };
 
 
 let mapStateToProps = (state) => ({
+  myId: state.auth.userId,
   login: state.auth.login,
   status: state.myProfilePage.status,
-  photo: state.myProfilePage.photo
+  photo: state.myProfilePage.photo,
+  profile: state.myProfilePage.myProfileInfo
 })
 
 export default compose(
-  connect(mapStateToProps, {getAuthUserData, updateStatus, getStatus, savePhoto}),
+  connect(mapStateToProps, {getAuthUserData, getMyProfile, updateStatus, getStatus, savePhoto}),
   withRouter,
   withAuthRedirect
 )(MyProfileContainer);
