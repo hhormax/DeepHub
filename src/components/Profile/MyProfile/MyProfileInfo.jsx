@@ -6,6 +6,7 @@ import MyProfileStatusWithHooks from "./MyProfileStatusWithHooks";
 const ava = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fpikabu.ru%2Fstory%2Favatarki_zverushek_9946640&psig=AOvVaw2xPkg8YWVqWnD4TGFtWdYn&ust=1699881587552000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCOjm48jGvoIDFQAAAAAdAAAAABAD'
 
 const MyProfileInfo = (props) => {
+  
 
   const onMainPhotoSelected = (e) => {
     if (e.target.files[0]){

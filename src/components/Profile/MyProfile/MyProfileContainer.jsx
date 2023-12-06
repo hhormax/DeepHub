@@ -24,7 +24,7 @@ function withRouter(Component) {
 }
 
 class MyProfileContainer extends React.Component {
-  
+
   componentDidMount(){
     let userId = this.props.myId;
     this.props.getMyProfile(userId);
@@ -39,7 +39,7 @@ class MyProfileContainer extends React.Component {
       updateStatus={this.props.updateStatus} 
       isOwner={!!this.props.getStatus(this.props.myId)}
       savePhoto={this.props.savePhoto}
-      profile={this.props.profile}
+      //profile={this.props.profile}
       />
     );
   }
@@ -54,8 +54,4 @@ let mapStateToProps = (state) => ({
   profile: state.myProfilePage.myProfileInfo
 })
 
-export default compose(
-  connect(mapStateToProps, {getAuthUserData, getMyProfile, updateStatus, getStatus, savePhoto}),
-  withRouter,
-  withAuthRedirect
-)(MyProfileContainer);
+export default compose(connect(mapStateToProps, {getAuthUserData, getMyProfile, updateStatus, getStatus, savePhoto}), withRouter, withAuthRedirect)(MyProfileContainer);

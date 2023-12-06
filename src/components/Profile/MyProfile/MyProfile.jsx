@@ -4,6 +4,7 @@ import MyProfileInfo from "./MyProfileInfo";
 import MyPostsContainer from "../MyPosts/MyPostsContainer";
 
 const MyProfile = (props) => {
+  
   return (
     <div className={s.content}>
       <MyProfileInfo login={props.login} 
@@ -12,8 +13,8 @@ const MyProfile = (props) => {
                       updateStatus={props.updateStatus} 
                       isOwner={props.isOwner} 
                       savePhoto={props.savePhoto}
-                      profile={props.profile}/>
-                      
+                      //profile={props.profile}
+                      />
       <MyPostsContainer />
       </div>
   );

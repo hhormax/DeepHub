@@ -24,6 +24,16 @@ const validatePassword = value =>{
     } 
 }
 
+const validateCaptcha = value =>{
+    if (!value) {
+        return 'Required';
+    } 
+    else if (!/\w/.test(value)
+    ) {
+        return 'Invalid input';
+    }
+}
+
 const Login = (props) => {
     {if(props.isAuth) return <Navigate to="/myProfile" />}
     return (
@@ -32,12 +42,12 @@ const Login = (props) => {
                 initialValues={{ 
                     email: '', 
                     password: '',
-                    rememberMe: false
+                    rememberMe: false,
+                    captcha: null
                 }}
 
                 onSubmit={values => {
-                    console.log(values);
-                    props.logiN(values.email, values.password, values.rememberMe)
+                    props.logiN(values.email, values.password, values.rememberMe, values.captcha)
                 }}
             >
                 {({ errors, touched }) => (
@@ -70,6 +80,13 @@ const Login = (props) => {
                             type="checkbox"
                             />
                     </div>
+                    <div>
+                        <Field
+                            className={s.field}
+                            name="captcha"
+                            placeholder="input captcha"
+                            validate={validateCaptcha}/>
+                    </div>
                     <button className={s.button} type="submit">Login</button>
                 </Form>
                 )}
@@ -80,7 +97,8 @@ const Login = (props) => {
   
 const mapStateToProps = (state) => {
     return {
-        isAuth: state.auth.isAuth
+        isAuth: state.auth.isAuth,
+        captchaUrl: state.auth.captchaUrl
       }
     
 }
