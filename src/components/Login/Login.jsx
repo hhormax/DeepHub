@@ -91,6 +91,7 @@ const Login = (props) => {
                 </Form>
                 )}
             </Formik>
+            <div className={s.login_password}>Try test account<br/>login: free@samuraijs.com<br/>password: free</div>
         </div>
     )
 };

@@ -82,6 +82,7 @@
     cursor: pointer;
 }
 
-.rememberMe{
-    margin-top: -5px;
+.login_password{
+    margin-top: 20px;
+    color: white
 }
