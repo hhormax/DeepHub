@@ -24,15 +24,15 @@ const validatePassword = value =>{
     } 
 }
 
-const validateCaptcha = value =>{
-    if (!value) {
-        return 'Required';
-    } 
-    else if (!/\w/.test(value)
-    ) {
-        return 'Invalid input';
-    }
-}
+// const validateCaptcha = value =>{
+//     if (!value) {
+//         return 'Required';
+//     } 
+//     else if (!/\w/.test(value)
+//     ) {
+//         return 'Invalid input';
+//     }
+// }
 
 const Login = (props) => {
     {if(props.isAuth) return <Navigate to="/myProfile" />}
@@ -72,7 +72,7 @@ const Login = (props) => {
                         {errors.password && touched.password && (<div className={s.error}>{errors.password}</div>)}
                     </div>
 
-                    <div className={s.rememberMe}>
+                    {/* <div className={s.rememberMe}>
                         <label className={s.label}>Remember me</label>
                         <Field 
                             className={s.box}
@@ -86,7 +86,7 @@ const Login = (props) => {
                             name="captcha"
                             placeholder="input captcha"
                             validate={validateCaptcha}/>
-                    </div>
+                    </div> */}
                     <button className={s.button} type="submit">Login</button>
                 </Form>
                 )}
